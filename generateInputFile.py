@@ -1,3 +1,7 @@
+## Program: To generate a valid fixed width file for testing
+## version 1.0.0
+## Author: Dejun Xiang
+## Date: 08/09/2019
 
 def generateTestInput():
     with open("testInput.txt" ,'w',encoding='windows-1252') as f:

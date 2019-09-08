@@ -1,3 +1,10 @@
+## Program: Two functions:
+##          1. Load spec file
+##          2. read lines for input file.
+## version 1.0.0
+## Author: Dejun Xiang
+## Date: 08/09/2019
+
 import json
 
 def loadSpec(spec_file):
@@ -8,7 +15,6 @@ def loadSpec(spec_file):
         fixedWidthENcoding = spec["FixedWidthEncoding"]
         includeHeader = spec['IncludeHeader']
         delimitedEncoding = spec["DelimitedEncoding"]
-
         return colNames, offsets, fixedWidthENcoding, includeHeader, delimitedEncoding
 
 def readRow(row, colNames, offsets):
@@ -17,6 +23,7 @@ def readRow(row, colNames, offsets):
     end = 0
     for index in range(len(colNames)):
         end += int(offsets[index])
+        # fill the rowDict its header corresponding with its content
         rowDict[colNames[index]] = row[start:end]
         start += int(offsets[index])
     return rowDict

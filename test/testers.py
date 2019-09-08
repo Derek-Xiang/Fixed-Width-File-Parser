@@ -1,12 +1,17 @@
+## Program: Test 2 methods
+## version 1.0.0
+## Author: Dejun Xiang
+## Date: 08/09/2019
+
 import unittest
-import sys,os,io
+import sys,os
 sys.path.insert(0, os.path.abspath(".."))
 import converter.specLoader as spec
 
 class SpecTest(unittest.TestCase):
 
+    ## This is to test if the spec is loaded correctly
     def testSpec(self):
-        # with open('spec.json','r') as spec_file:
         colNames,offsets,fixedWidthEncoding,includeHeader,delimitedEncoding = spec.loadSpec('..\\spec.json')
         offsetList = ['5','12','3','2','13','7','10','13','20','13']
 
@@ -20,7 +25,9 @@ class SpecTest(unittest.TestCase):
         self.assertEqual('True', includeHeader)
         self.assertEqual('utf-8', delimitedEncoding)
 
+    ## This is to test if the row of input file can be read correctly
     def testReadRow(self):
+        # initialize the correct sample row
         row = {}
         row['f1'] = 'f1111'
         row['f2'] = 'f22222222222'
@@ -32,9 +39,14 @@ class SpecTest(unittest.TestCase):
         row['f8'] = 'f888888888888'
         row['f9'] = 'f9999999999999999999'
         row['f10'] = 'f100000000000'
+
+        # initialize the sample input
         inputText = "f1111f22222222222f33f4f555555555555f666666f777777777f888888888888f9999999999999999999f100000000000"
+        # initialize the sample headers
         colNames = ['f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10']
+        # initialize the sample offsets
         offsets = ['5','12','3','2','13','7','10','13','20','13']
+        # get the row by readRow method
         rowDict = spec.readRow(inputText, colNames,offsets)
         self.assertEqual(row, rowDict)
 
