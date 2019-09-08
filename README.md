@@ -4,10 +4,14 @@
 This program is to convert a fixed width file to a csv file with a spec file
 ### Dependency:
 None <br>
-Pure Python3
+Pure Python3 
 
 ### How to use the file Converter:
-##### python main.py (inputFile) (outputFile.csv) (specFile.json)
+python3 main.py (inputFile) (outputFile.csv) (specFile.json)
+
+####Example:
+python3 main.py testInput.txt testOutput.csv spec.json
+
 ### How to run unit tests:
 chmod +x runTests.sh <br>
 ./runTests.sh

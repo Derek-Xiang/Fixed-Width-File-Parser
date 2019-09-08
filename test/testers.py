@@ -12,7 +12,7 @@ class SpecTest(unittest.TestCase):
 
     ## This is to test if the spec is loaded correctly
     def testSpec(self):
-        colNames,offsets,fixedWidthEncoding,includeHeader,delimitedEncoding = spec.loadSpec('..\\spec.json')
+        colNames,offsets,fixedWidthEncoding,includeHeader,delimitedEncoding = spec.loadSpec('..//spec.json')
         offsetList = ['5','12','3','2','13','7','10','13','20','13']
 
         self.assertEqual(True,len(colNames)==len(offsets)==10)

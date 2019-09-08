@@ -3,9 +3,9 @@
 cd test
 
 echo "========For both tests========:"
-python testers.py
+python3 testers.py
 
 echo "===For the method loadSpec===:"
-python -m unittest testers.SpecTest.testSpec
+python3 -m unittest testers.SpecTest.testSpec
 echo "===Test the method readRow===:"
-python -m unittest testers.SpecTest.testReadRow
+python3 -m unittest testers.SpecTest.testReadRow
