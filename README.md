@@ -9,7 +9,7 @@ Pure Python3
 ### How to use the file Converter:
 python3 main.py (inputFile) (outputFile.csv) (specFile.json)
 
-####Example:
+###Example:
 python3 main.py testInput.txt testOutput.csv spec.json
 
 ### How to run unit tests:
