@@ -1,5 +1,5 @@
 # Parse fixed width file
-**Version 1.0.1 **
+**Version 1.0.1 **<br>
 Modified with the guidance provided<br>
 +++ add test: "testCsvGenerator"<br>
 +++ modify generateInputFile.py to generate input file by spec.json (no hard coding)<br>
