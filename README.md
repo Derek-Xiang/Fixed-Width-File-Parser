@@ -1,8 +1,8 @@
 # Parse fixed width file
 **Version 1.0.1 **
-Modified with the guidance provided
-+++ add test: "testCsvGenerator"
-+++ modify generateInputFile.py to generate input file by spec.json (no hard coding)
+Modified with the guidance provided<br>
++++ add test: "testCsvGenerator"<br>
++++ modify generateInputFile.py to generate input file by spec.json (no hard coding)<br>
 +++ modify runTest.sh file
 <br>
 Command to run to check: ./runTests.sh
