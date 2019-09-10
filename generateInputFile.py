@@ -3,8 +3,17 @@
 ## Author: Dejun Xiang
 ## Date: 08/09/2019
 
-def generateTestInput():
-    with open("testInput.txt" ,'w',encoding='windows-1252') as f:
-        f.write("f1111f22222222222f33f4f555555555555f666666f777777777f888888888888f9999999999999999999f100000000000\n")
-        f.write("f7771f22228882222f33f4f555555555555f666666f777777777f888888888888f9999999999999999999f100000000000\n")
-        f.write("f5511f22222222222f33f4f555555555555f666666f777777777f888888888888f9999999999999999999f100000000000")
+import json
+from converter.specLoader import loadSpec
+
+def generateTestInput(inputFile, specFile, lines):
+    with open(specFile,'r') as spec:
+        _, offsets, fixedWidthEncoding, _, _ = loadSpec(specFile)
+        with open(inputFile,'w',encoding=fixedWidthEncoding) as file:
+            for num in range(lines):
+                for offset in offsets:
+                    file.write('f'+(int(offset)-1)*offset[0])
+                file.write('\n')
+
+if __name__ == "__main__":
+    generateTestInput("newTestInput.txt", "spec.json", 3)
