@@ -1,6 +1,12 @@
 # Parse fixed width file
 **Version 1.0.1 **
 Modified with the guidance provided
++++ add test: "testCsvGenerator"
++++ modify generateInputFile.py to generate input file by spec.json (no hard coding)
++++ modify runTest.sh file
+<br>
+Command to run to check: ./runTests.sh
+
 **Version 1.0.0 **
 
 This program is to convert a fixed width file to a csv file with a spec file
