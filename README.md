@@ -1,4 +1,6 @@
 # Parse fixed width file
+**Version 1.0.1 **
+Modified with the guidance provided
 **Version 1.0.0 **
 
 This program is to convert a fixed width file to a csv file with a spec file
