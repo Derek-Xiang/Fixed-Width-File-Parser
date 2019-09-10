@@ -7,6 +7,7 @@ import unittest
 import sys,os
 sys.path.insert(0, os.path.abspath(".."))
 import converter.specLoader as spec
+from converter.converterToCsv import FixedWidthToCsv
 
 class SpecTest(unittest.TestCase):
 
@@ -49,6 +50,32 @@ class SpecTest(unittest.TestCase):
         # get the row by readRow method
         rowDict = spec.readRow(inputText, colNames,offsets)
         self.assertEqual(row, rowDict)
+
+    def testCsvGenerator(self):
+        colNames, offsets, fixedWidthEncoding, includeHeader, delimitedEncoding = spec.loadSpec("../spec.json")
+        with open("../newTestOutput.csv",'r',encoding=delimitedEncoding) as fileCsv,\
+                open("../newTestInput.txt", 'r', encoding = fixedWidthEncoding) as fileTxt:
+
+            firstLineCsv = fileCsv.readline()[:-1].split(',')
+            # check headers.
+            self.assertEqual(colNames, firstLineCsv)
+
+            next(fileCsv)
+            for csvLine, txtLine in zip(fileCsv,fileTxt):
+                csvList = csvLine[:-1].split(',')
+                indexStart = 0
+                indexEnd = 0
+                offsetIndex = 0
+                for csvCell in csvList:
+                    temp = int(offsets[offsetIndex])
+                    indexEnd += temp
+                    txtCell = txtLine[indexStart:indexEnd]
+
+                    # check each cell in each line.
+                    self.assertEqual(csvCell, txtCell)
+                    indexStart = indexEnd
+                    offsetIndex += 1
+
 
 if __name__ == "__main__":
     unittest.main()
